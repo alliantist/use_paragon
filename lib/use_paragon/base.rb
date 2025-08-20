@@ -25,7 +25,17 @@ module UseParagon
       payload = {
         sub: user_id,
         iat: created_at,
-        exp: created_at + 60 * 60
+        exp: created_at + 60 * 60,
+        "urn:useparagon:connect:permissions": {
+          "integration:*": [
+            "credential:write",
+            "config:write",
+            "settings:write",
+            "metadata:write",
+            "events",
+            "workflows"
+          ]
+        }
       }
 
       @token = JWT.encode payload, rsa_private, "RS256"

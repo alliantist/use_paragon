@@ -27,11 +27,11 @@ module UseParagon
         iat: created_at,
         exp: created_at + 60 * 60,
         "urn:useparagon:connect:permissions": {
+          "metadata:write": true,
           "integration:*": [
             "credential:write",
             "config:write",
             "settings:write",
-            "metadata:write",
             "events",
             "workflows"
           ]
